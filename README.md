@@ -1,1 +1,2 @@
 # ELT
+> minio.exe server .
