@@ -12,13 +12,8 @@ def main():
     """
     data = extract_data()
     load_data(data)
-
-
     transform_data()
     store_data()
-
-
-
 
 
 if __name__ == "__main__":
