@@ -3,13 +3,17 @@ from minio import Minio
 
 
 def load_data(data):
-    # Create a client with the MinIO server playground, its access key
-    # and secret key.
+    """
+    Move given data into a MinIO bucket.
+    :param data: The data to be stored in a bucket.
+    :return: None
+    """
+    # TODO move into .ini configuration file
     client = Minio(
         endpoint="localhost:9000",
         access_key="minioadmin",
         secret_key="minioadmin",
-        secure=False
+        secure=False,
     )
 
     if not client.bucket_exists("dubber2"):
@@ -20,6 +24,11 @@ def load_data(data):
     data_stream = io.BytesIO(data)
     data_stream.seek(0)
 
-    client.put_object(bucket_name="dubber2", object_name="json", data=data_stream, length=len(data), content_type="application/json")
+    client.put_object(
+        bucket_name="dubber2",
+        object_name="json",
+        data=data_stream,
+        length=len(data),
+        content_type="application/json",
+    )
     print("Successfully uploaded")
-    return True

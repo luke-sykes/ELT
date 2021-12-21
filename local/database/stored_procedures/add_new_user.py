@@ -9,7 +9,7 @@ def add_new_user(user_id, user_data):
         conn = psycopg2.connect(**params)
         cur = conn.cursor()
 
-        cur.execute('CALL add_new_user(%s,%s)', (user_id, user_data))
+        cur.execute("CALL add_new_user(%s,%s)", (user_id, user_data))
         conn.commit()
 
         cur.close()

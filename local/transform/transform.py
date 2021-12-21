@@ -8,7 +8,7 @@ def transform_data():
         endpoint="localhost:9000",
         access_key="minioadmin",
         secret_key="minioadmin",
-        secure=False
+        secure=False,
     )
     data = client.get_object("dubber2", "json")
     loaded_data = json.loads(json.load(io.BytesIO(data.data)))
