@@ -1,3 +1,5 @@
+import os
+
 from local.database.store import store_data
 from local.extract.extract_api import extract_data
 from local.load.load import load_data
@@ -10,10 +12,11 @@ def main():
 
     :return: None
     """
+
     data = extract_data()
     load_data(data)
-    transform_data()
-    store_data()
+    # transform_data()
+    # store_data()
 
 
 if __name__ == "__main__":

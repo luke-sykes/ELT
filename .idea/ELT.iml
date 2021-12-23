@@ -5,6 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/local" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/local/load/.minio.sys" />
+      <excludeFolder url="file://$MODULE_DIR$/local/load/dummy-bucket" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.9 (ELT)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -18,5 +19,11 @@
         <option value="$MODULE_DIR$/local/load" />
       </list>
     </option>
+  </component>
+  <component name="ReSTService">
+    <option name="DOC_DIR" value="C:\Users\Luke\Documents\projects\ELT\docs" />
+  </component>
+  <component name="TestRunnerService">
+    <option name="PROJECT_TEST_RUNNER" value="py.test" />
   </component>
 </module>
