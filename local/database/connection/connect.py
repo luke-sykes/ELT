@@ -1,32 +1,26 @@
+from configparser import ConfigParser
 import psycopg2
-from local.database.connection.config import config
+import yaml
 
 
-def connect():
-    """
-    Connect to the PostgreSQL database server
-    :return:
-    """
+class DatabaseLayer:
+    @staticmethod
+    def config(
+        file_path="C:\\Users\\Luke\\Documents\\projects\\ELT\\local\\database\\database.yaml",
+    ):
+        with open(file_path, "r") as f:
+            return yaml.safe_load(f)
 
-    conn = None
-    try:
-        params = config()
+    def __init__(self):
+        params = self.config()
+        self.conn = psycopg2.connect(**params)
+        self.cur = self.conn.cursor()
 
-        print("Connecting to the PostgreSQL database...")
-        conn = psycopg2.connect(**params)
+    def add_data(self, data):
+        return None
 
-        cur = conn.cursor()
-
-        print("PostgreSQL database version:")
-        cur.execute("SELECT version()")
-
-        db_version = cur.fetchone()
-        print(db_version)
-
-        cur.close()
-    except (Exception, psycopg2.DatabaseError) as error:
-        print(error)
-    finally:
-        if conn is not None:
-            conn.close()
-            print("Database connection closed.")
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.cur.close()
+        self.conn.close()
+        print("Database connection closed.")
+        # TODO change to logging

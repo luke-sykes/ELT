@@ -1,5 +1,7 @@
-from local.database.connection.connect import connect
+from local.database.connection.connect import DatabaseLayer
 
 
 def store_data():
-    connect()
+    with DatabaseLayer() as database:
+        database.add_data()
+    return None

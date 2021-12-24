@@ -3,7 +3,7 @@ import pytest
 import yaml
 from urllib3.exceptions import MaxRetryError
 
-from local.load.load import LoadS3
+from local.load.load import ObjectStorage
 
 
 class TestLoadS3:
@@ -12,12 +12,12 @@ class TestLoadS3:
 
     @pytest.fixture
     def create_LoadS3(self):
-        obj = LoadS3()
+        obj = ObjectStorage()
         return obj
 
     def test_config(self):
         with pytest.raises(FileNotFoundError):
-            LoadS3.config(
+            ObjectStorage.config(
                 file_path="C:\\Users\\Luke\\Documents\\projects\\ELT\\tests\\data\\non_existing_file.yaml"
             )
 
