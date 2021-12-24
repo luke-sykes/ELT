@@ -8,7 +8,7 @@ from local.load.load import ObjectStorage
 
 class TestLoadS3:
 
-    # TODO delete bucket test after run
+    # TODO delete bucket test after runcov
 
     @pytest.fixture
     def create_LoadS3(self):

@@ -1,19 +1,25 @@
 import json
 import requests
+from local.resources import Strings
 
 
 def make_request():
-    """
+    """Request external data
+
     Make request to external API.
 
-    :return: A response object.
+    :return: The http response from the requested address.
+    :rtype: Response object.
     """
-    return requests.get("https://run.mocky.io/v3/38514759-6a5e-40f6-96cd-bd5f01a334f3")
+    return requests.get(Strings.API_ADDRESS)
 
 
 def extract_data():
-    """
+    """Get json data from api
+
     Make request to API and convert response into a JSON formatted string.
-    :return: JSON formatted string.
+
+    :return: The requested resource from the API in json format.
+    :rtype: JSON formatted string.
     """
-    return json.dumps(make_request().text).encode("utf-8")
+    return json.dumps(make_request().text).encode(Strings.JSON_ENCODING)

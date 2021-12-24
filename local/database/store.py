@@ -1,4 +1,4 @@
-from local.database.connection.connect import DatabaseLayer
+from database.data_access import DatabaseLayer
 
 
 def store_data():
